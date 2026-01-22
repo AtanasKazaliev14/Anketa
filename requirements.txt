@@ -1,3 +1,15 @@
 st.title("Анкета")
-text = st.text_input("Въведи текст")
-subject = st.selectbox("Избери предмет: ", ["Математика", "Химия", "Физика", "Немски език", "Английски език"])
+name = st.text_input("Въведи име:")
+age = st.number_input("Въведи възраст:", min_value=5, max_value=100, step=1)
+subject = st.selectbox("Избери предмет:",["Математика", "Химия", "Физика", "Немски език", "Английски език"])
+grade = st.slider("Избери оценка:", min_value=2, max_value=6, step=1)
+if st.button("Изпрати"):
+    if name == "":
+        st.warning("Моля, въведи име!")
+else:
+        st.success("Анкетата е изпратена успешно!")
+        st.write(" Въведени данни:")
+        st.write("Име: {name}")
+        st.write("Възраст: {age}")
+        st.write("Предмет: {subject}")
+        st.write("Оценка: {grade}")
